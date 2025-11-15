@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>创建追番列表</title>
+    <link href="/2025/11/15/%E5%88%9B%E5%BB%BA%E8%BF%BD%E7%95%AA%E5%88%97%E8%A1%A8/"/>
+    <url>/2025/11/15/%E5%88%9B%E5%BB%BA%E8%BF%BD%E7%95%AA%E5%88%97%E8%A1%A8/</url>
+    
+    <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><hr><p>利用hexo-bangumis插件和番组计划为博客创建一个追番列表</p><p>番组计划：<a href="https://bangumi.tv/">点击跳转</a>，<a href="https://bgm.tv/">点击跳转</a></p><p>hexo-bangumis：<a href="https://github.com/mmdjiji/hexo-bangumis">点击跳转</a></p><h3 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h3><p><img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251115200251895.png"></p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><hr><p>在hexo目录下执行</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">npm <span class="hljs-keyword">install </span>hexo-<span class="hljs-keyword">bangumis </span>--save<br></code></pre></td></tr></table></figure><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><hr><p>将下面的配置写入 <strong>站点</strong> 的配置文件 <code>_config.yml</code> 中:</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs nix"><span class="hljs-params">bangumis:</span><br>  <span class="hljs-params">enable:</span> <span class="hljs-literal">true</span>              <span class="hljs-comment"># 是否启用</span><br>  <span class="hljs-params">path:</span> bangumis<span class="hljs-symbol">/index.html</span> <span class="hljs-comment"># 生成追番页面的路径</span><br>  <span class="hljs-params">show:</span> <span class="hljs-number">1</span>                   <span class="hljs-comment"># 想看，在看，看完</span><br>  <span class="hljs-params">title:</span> &#x27;追番列表&#x27;          <span class="hljs-comment"># 标题</span><br>  <span class="hljs-params">quote:</span> &#x27;生命不息，追番不止&#x27; <span class="hljs-comment"># 格言</span><br>  <span class="hljs-params">color_meta:</span> <span class="hljs-string">&quot;#555&quot;</span>        <span class="hljs-comment"># 追番项元数据的颜色</span><br>  <span class="hljs-params">color_summary:</span> <span class="hljs-string">&quot;#555&quot;</span>     <span class="hljs-comment"># 追番项简介的颜色</span><br>  <span class="hljs-params">bgmtv_uid:</span> mmdjiji        <span class="hljs-comment"># bgm.tv的uid</span><br>  <span class="hljs-params">download_image:</span> <span class="hljs-literal">true</span>      <span class="hljs-comment"># 下载图片并使用本地图片，否则使用bgm.tv提供的网络图源</span><br>  <span class="hljs-params">image_level:</span> c            <span class="hljs-comment"># 图片高清等级 (l, c, m, s, g)</span><br>  <span class="hljs-params">lazyload:</span> <span class="hljs-literal">true</span>            <span class="hljs-comment"># 是否开启懒加载</span><br>  <span class="hljs-params">margin:</span> <span class="hljs-number">20</span>px              <span class="hljs-comment"># 封面图的偏移量微调</span><br></code></pre></td></tr></table></figure><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><hr><p>更新追番数据：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo bangumis -u</span><br></code></pre></td></tr></table></figure><p>删除追番数据：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo bangumis -d</span><br></code></pre></td></tr></table></figure><h3 id="获取UID"><a href="#获取UID" class="headerlink" title="获取UID"></a>获取UID</h3><hr><p>登录<a href="https://bangumi.tv/">番组计划</a>后，打开浏览器的开发者模式（快捷键<code>Ctrl</code>+<code>Shift</code>+<code>j</code>），在控制台输入<code>CHOBITS_UID</code>后回车，得到的数字就是<code>UID</code>，再将UID填写到上面配置中去<img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251115200301839.png"></p><h3 id="设置自动更新番剧数据"><a href="#设置自动更新番剧数据" class="headerlink" title="设置自动更新番剧数据"></a>设置自动更新番剧数据</h3><p>因为在上面的过程中，我们是在番组计划中进行修改，在将番组计划中的数据同步下来，每次都需要手动拉取，因此可以设置自动任务来每天从番组计划中拉取数据</p><hr><p>在<code>.github/workflows/</code>中创建名为<code>auto-update.yml</code>的文件，在文件中添加以下内容</p><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs nix"><span class="hljs-params">name:</span> Auto update<br><span class="hljs-params">on:</span><br>  <span class="hljs-params">workflow_dispatch:</span><br>  <span class="hljs-params">schedule:</span><br>    <span class="hljs-operator">-</span> <span class="hljs-params">cron:</span> &#x27;<span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-operator">*</span> <span class="hljs-operator">*</span> <span class="hljs-operator">*</span>&#x27; <span class="hljs-comment"># Every day</span><br><br><span class="hljs-params">jobs:</span><br>  <span class="hljs-params">meta:</span><br>    <span class="hljs-params">name:</span> Update meta<br>    <span class="hljs-params">runs-on:</span> ubuntu-latest<br>    <span class="hljs-params">timeout-minutes:</span> <span class="hljs-number">10</span><br>    <span class="hljs-params">steps:</span><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Checkout<br>        <span class="hljs-params">uses:</span> actions<span class="hljs-operator">/</span>checkout@v3<br>        <span class="hljs-params">with:</span><br>          <span class="hljs-params">ref:</span> main<br><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Do meta update<br>        <span class="hljs-params">shell:</span> bash<br>        <span class="hljs-params">run:</span> |<br>          npm install<br>          npx hexo bangumis <span class="hljs-operator">-</span>u <span class="hljs-operator">||</span> echo<br><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Commit files<br>        <span class="hljs-params">run:</span> |<br>          git config <span class="hljs-operator">-</span>-local user.email <span class="hljs-string">&quot;41898282+github-actions[bot]@users.noreply.github.com&quot;</span><br>          git config <span class="hljs-operator">-</span>-local user.name <span class="hljs-string">&quot;github-actions[bot]&quot;</span><br>          git add .<br>          git commit <span class="hljs-operator">-</span>m <span class="hljs-string">&quot;Update meta on $(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)&quot;</span> <span class="hljs-operator">||</span> echo<br><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Push changes<br>        <span class="hljs-params">uses:</span> ad-m<span class="hljs-operator">/</span>github-push-action@master<br>        <span class="hljs-params">with:</span><br>          <span class="hljs-params">github_token:</span> $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;<br>          <span class="hljs-params">branch:</span> $&#123;&#123; github.ref &#125;&#125;<br><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Do build<br>        <span class="hljs-params">shell:</span> bash<br>        <span class="hljs-params">run:</span> |<br>          npm run build<br><br>      <span class="hljs-operator">-</span> <span class="hljs-params">name:</span> Deploy 🚀<br>        <span class="hljs-params">uses:</span> JamesIves<span class="hljs-operator">/</span>github-pages-deploy-action@releases<span class="hljs-symbol">/v3</span><br>        <span class="hljs-params">with:</span><br>          <span class="hljs-params">GITHUB_TOKEN:</span> $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;<br>          <span class="hljs-params">BRANCH:</span> gh-pages <span class="hljs-comment"># The branch the action should deploy to.</span><br>          <span class="hljs-params">FOLDER:</span> public <span class="hljs-comment"># The folder the action should deploy.</span><br></code></pre></td></tr></table></figure><h3 id="删除插件"><a href="#删除插件" class="headerlink" title="删除插件"></a>删除插件</h3><hr><h4 id="1-卸载插件"><a href="#1-卸载插件" class="headerlink" title="1.卸载插件"></a>1.卸载插件</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">npm uninstall hexo-bangumis <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure><h4 id="2-删除插件在-config-yml的配置"><a href="#2-删除插件在-config-yml的配置" class="headerlink" title="2.删除插件在_config.yml的配置"></a>2.删除插件在<code>_config.yml</code>的配置</h4><h4 id="3-删除缓存图片"><a href="#3-删除缓存图片" class="headerlink" title="3.删除缓存图片"></a>3.删除缓存图片</h4><p>将<code>&quot;source/_data/</code>中的<code>bangumis</code>文件夹删除</p><h4 id="4-删除缓存数据"><a href="#4-删除缓存数据" class="headerlink" title="4.删除缓存数据"></a>4.删除缓存数据</h4><p>将<code>&quot;source/images/</code>中的<code>bangumis</code>文件夹删除</p><h4 id="5-删除自动更新文件"><a href="#5-删除自动更新文件" class="headerlink" title="5.删除自动更新文件"></a>5.删除自动更新文件</h4><p>将<code>.github/workflows/</code>中的<code>auto-update.yml</code>文件删除</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hexo常用管理设置（持续更新...）</title>
+    <link href="/2025/11/14/hexo%E5%B8%B8%E7%94%A8%E7%AE%A1%E7%90%86%E8%AE%BE%E7%BD%AE/"/>
+    <url>/2025/11/14/hexo%E5%B8%B8%E7%94%A8%E7%AE%A1%E7%90%86%E8%AE%BE%E7%BD%AE/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">title:</span> <span class="hljs-string">hexo</span>     <span class="hljs-comment"># 文章标题</span><br><span class="hljs-attr">date:</span> <span class="hljs-number">2025-11-14 17:23:07</span>   <span class="hljs-comment"># 发布时间</span><br><span class="hljs-attr">tags:</span> <span class="hljs-string">hexo</span>                  <span class="hljs-comment"># 文章标签</span><br><span class="hljs-attr">categories:</span> <span class="hljs-string">hexo</span>            <span class="hljs-comment"># 文章分类</span><br><span class="hljs-meta">---</span><br></code></pre></td></tr></table></figure><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">categories:</span>    <span class="hljs-meta">#方式一 </span><br>  - 一级目录<br>  - 二级目录<br><span class="hljs-symbol">categories:</span> [一级目录，二级目录]    <span class="hljs-meta">#方式二</span><br></code></pre></td></tr></table></figure><hr><h3 id="自定义页面"><a href="#自定义页面" class="headerlink" title="自定义页面"></a>自定义页面</h3><h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>1.首先用命令行创建页面</p><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">hexo <span class="hljs-built_in">new</span> page <span class="hljs-built_in">example</span><br></code></pre></td></tr></table></figure><p>2.创建成功后编辑博客目录下 <code>/source/example/index.md</code></p><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>在博客目录下进入<code>source</code>文件夹删除<code>example</code>文件夹就行了</p><hr>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>闲谈01</title>
+    <link href="/2025/11/12/%E9%97%B2%E8%B0%88/"/>
+    <url>/2025/11/12/%E9%97%B2%E8%B0%88/</url>
+    
+    <content type="html"><![CDATA[<p>今天睡的是真舒服，在寝室一天都没出去了<img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251113175237344.jpg" style="zoom:10%;" /></p><img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251113175234873.jpg" style="display: block; margin: 0px auto; zoom: 20%;"><p>今天下午也是写那个实验报告写死我了，之前写了一点点，今天下午来写又是从头在操作，从头在写报告，写到最后那个行间距又太难看了，我就在那调，调半天都不行，当时就好无语，要气炸了，后面抖音搜才搞好的，之后去吃饭，吃完回来写另一个作业，又遇到一个离奇的事，在那个文档里每换一行写字，默认时加粗的，我就在这个字体框里调成常规，不行，我又去点左下角的设为默认值，还是不行，气死我了，换一行就要点一下取消粗体<img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251113175308337.png" style="zoom:25%;" /></p><p>写到最后在这个编辑页面排版看起来是真丑，主要是插入了图片，回头继续学一下加图片排版</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>闲谈</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo部署</title>
+    <link href="/2025/11/07/Hexo%E9%83%A8%E7%BD%B2/"/>
+    <url>/2025/11/07/Hexo%E9%83%A8%E7%BD%B2/</url>
+    
+    <content type="html"><![CDATA[<p>添加新文章<br><code>hexo new &quot;新文章标题&quot;</code></p><p>本地测试<br><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code><br><code>hexo clear</code>    清除缓存<br><code>hexo g</code>            渲染页面<br><code>hexo s</code>            生成页面</p><p>提交到GitHub<br><code>git add .</code><br><code>git commit -m &quot;部署说明&quot;</code><br><code>git push origin master</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="/2025/11/07/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+    <url>/2025/11/07/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<p>这是第一篇文章，用的Typora所写的，期望一直写下去</p><img src="https://cdn.jsdelivr.net/gh/DengYong250/files@main/20251113174816162.jpg" alt="经常用的图片" style="zoom:15%;" />]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
